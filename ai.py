@@ -73,16 +73,16 @@ def bot():
 
     otherPlayers = []
 
-    for player_dict in map_json["OtherPlayers"]:
-        for player_name in player_dict.keys():
-            player_info = player_dict[player_name]
-            p_pos = player_info["Position"]
-            player_info = PlayerInfo(player_info["Health"],
+    for players in map_json["OtherPlayers"]:
+
+        player_info = players["Value"]
+        p_pos = player_info["Position"]
+        player_info = PlayerInfo(player_info["Health"],
                                      player_info["MaxHealth"],
                                      Point(p_pos["X"], p_pos["Y"]))
 
-            otherPlayers.append({player_name: player_info })
-    print(player.Position)
+        otherPlayers.append(player_info)
+    #print(player.Position)
     # return decision
     incrementX = Point(1, 0)
     destination = player.Position.__add__(incrementX)
