@@ -92,16 +92,16 @@ def bot():
     monpointb = Point(1, 0)
     gauche = point.__sub__(monpointb)
     monpointa = Point(0, 1)
-    bas = point.__sub__(monpointa)
+    haut = point.__add__(monpointa)
 
-    if (point.X == house['X'] + 3 and point.Y == house['Y'] - 7):
-        return create_collect_action(bas)
+    if (point.X == house['X'] and point.Y == house['Y']):
+        dest = Point(house['X'], house['Y'])
+        return create_move_action(dest)
 
-
-    if (point.Y != house['Y'] - 7):
-        ret = create_move_action(bas)
-    if (point.X != house['X'] + 3):
+    if (point.X != house['X']):
         ret = create_move_action(gauche)
+    if (point.Y != house['Y']):
+        ret = create_move_action(haut)
 
     return ret
 
