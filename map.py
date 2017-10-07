@@ -18,10 +18,9 @@ class Map():
 
     def __init__(self, point, mapparam):
         for i in range(point.X - 10, point.X + 10):
-            for j in range(point.Y - 10,point.Y + 10):
+            for j in range(point.Y - 10, point.Y + 10):
                 content = self.trouverContent(i, j, mapparam)
-                casesAccessibles = self.trouverCasesAccessibles(i, j, mapparam)
-                self.cases_.append(Cases(i, j, content, casesAccessibles))
+                self.cases_.append(Cases(i, j, content))
 
 
 

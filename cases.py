@@ -16,10 +16,8 @@ class Cases():
     x_ = 0
     y_ = 0
     content_ = None
-    casesAccessibles_ = []
 
-    def __init__(self, x, y, content, casesAccessibles):
+    def __init__(self, x, y, content):
         self.x_ = x
         self.y_ = y
         self.content = content
-        self.casesAccessibles_ = casesAccessibles

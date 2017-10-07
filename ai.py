@@ -69,15 +69,10 @@ def bot():
     player = Player(p["Health"], p["MaxHealth"], point,
                     Point(house["X"], house["Y"]),
                     p["CarriedResources"], p["CarryingCapacity"])
-
-
-
     # Map
-
-
     serialized_map = map_json["CustomSerializedMap"]
 
-    map = Map(point, serialized_map)
+    # map = Map(point, serialized_map)
 
     deserialized_map = deserialize_map(serialized_map)
 
@@ -95,7 +90,7 @@ def bot():
     print(player.Position)
     # return decision
     incrementX = Point(1, 0)
-    destination = player.Position.__add__(incrementX)
+    destination = player.Position.__sub__(incrementX)
     ret = create_move_action(destination)
     return ret
 
