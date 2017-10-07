@@ -93,10 +93,13 @@ def bot():
 
             otherPlayers.append({player_name: player_info })
 
-
+    print(player.Position)
 
     # return decision
-    return create_move_action(Point(0,1))
+    incrementX = Point(1, 0)
+    destination = player.Position.__add__(incrementX)
+    ret = create_move_action(destination)
+    return ret
 
 @app.route("/", methods=["POST"])
 def reponse():
@@ -106,4 +109,4 @@ def reponse():
     return bot()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=8080)
