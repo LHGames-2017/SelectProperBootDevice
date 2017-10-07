@@ -90,7 +90,7 @@ def bot():
     # return decision
 
     monpointb = Point(1, 0)
-    gauche = point.__sub__(monpointb)
+    droite = point.__add__(monpointb)
     monpointa = Point(0, 1)
     bas = point.__sub__(monpointa)
 
@@ -101,7 +101,7 @@ def bot():
     if (point.Y != house['Y'] - 7):
         ret = create_move_action(bas)
     if (point.X != house['X'] + 3):
-        ret = create_move_action(gauche)
+        ret = create_move_action(droite)
 
     return ret
 
