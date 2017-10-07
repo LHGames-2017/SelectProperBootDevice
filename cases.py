@@ -9,13 +9,26 @@
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
 
+import map
+
 
 class Cases():
-    casesAccessibles = None
+    x_ = 0
+    y_ = 0
+    content_ = None
+    casesAccessibles_ = []
 
-    def __init__(self, cases):
-        casesAccessibles = cases
+    def __init__(self, x, y, content, casesAccessibles):
+        self.x_ = x
+        self.y_ = y
+        self.etat_ = etat
+        self.casesAccessibles_ = casesAccessibles
 
-    def trouverCasesAutour():
+
+    def afficher():
+        print("salut")
+
+
+
 
 

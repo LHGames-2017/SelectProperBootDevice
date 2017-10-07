@@ -2,6 +2,8 @@ from flask import Flask, request
 from structs import *
 import json
 import numpy
+import map
+import cases
 
 app = Flask(__name__)
 
@@ -63,12 +65,20 @@ def bot():
     x = pos["X"]
     y = pos["Y"]
     house = p["HouseLocation"]
-    player = Player(p["Health"], p["MaxHealth"], Point(x,y),
+    point = Point(x,y)
+    player = Player(p["Health"], p["MaxHealth"], point,
                     Point(house["X"], house["Y"]),
                     p["CarriedResources"], p["CarryingCapacity"])
 
+
+
     # Map
+
+
     serialized_map = map_json["CustomSerializedMap"]
+
+    map = Map(point, serialized_map)
+
     deserialized_map = deserialize_map(serialized_map)
 
     otherPlayers = []
