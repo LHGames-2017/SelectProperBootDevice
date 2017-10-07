@@ -34,7 +34,7 @@ def deserialize_map(serialized_map):
     serialized_map = serialized_map[1:]
     rows = serialized_map.split('[')
     column = rows[0].split('{')
-    deserialized_map = [[Tile() for x in range(40)] for y in range(40)]
+    deserialized_map = [[Tile() for x in range(20)] for y in range(20)]
     for i in range(len(rows) - 1):
         column = rows[i + 1].split('{')
 
@@ -82,7 +82,6 @@ def bot():
                                      Point(p_pos["X"], p_pos["Y"]))
 
             otherPlayers.append({player_name: player_info })
-
     # return decision
     return create_move_action(Point(0,1))
 
@@ -94,4 +93,4 @@ def reponse():
     return bot()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=8080)
