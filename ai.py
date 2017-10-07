@@ -72,7 +72,7 @@ def bot():
     # Map
     serialized_map = map_json["CustomSerializedMap"]
 
-    # map = Map(point, serialized_map)
+    #map = Map(player.Position, serialized_map)
 
     deserialized_map = deserialize_map(serialized_map)
 
@@ -87,12 +87,22 @@ def bot():
                                      Point(p_pos["X"], p_pos["Y"]))
 
         otherPlayers.append(player_info)
-    print(player.Position)
     # return decision
     incrementX = Point(1, 0)
     destination = player.Position.__sub__(incrementX)
     ret = create_move_action(destination)
     return ret
+
+def trouverMinerai():
+        x_minerai = None
+        y_minerai = None
+        for i in range(0, len(map.cases_)):
+            if (cases_[i][j][0] == 4):
+                x_minerai = cases_[i][1]
+                y_minerai = cases_[i][2]
+                break
+        return Point(x_minerai, y_minerai)
+
 
 @app.route("/", methods=["POST"])
 def reponse():

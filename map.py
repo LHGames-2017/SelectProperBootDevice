@@ -15,11 +15,11 @@ from enum import Enum
 class Map():
     cases_ = []
 
-
     def __init__(self, point, mapparam):
         for i in range(point.X - 10, point.X + 10):
             for j in range(point.Y - 10, point.Y + 10):
                 content = self.trouverContent(i, j, mapparam)
+                print()
                 self.cases_.append(Cases(i, j, content))
 
 
