@@ -88,10 +88,22 @@ def bot():
 
         otherPlayers.append(player_info)
     # return decision
-    print(player.Position)
-    incrementX = Point(1, 0)
-    destination = point.__add__(incrementX)
-    return create_move_action(destination)
+
+    monpointb = Point(1, 0)
+    gauche = point.__sub__(monpointb)
+    monpointa = Point(0, 1)
+    bas = point.__sub__(monpointa)
+
+    if (point.X == house['X'] + 3 and point.Y == house['Y'] - 7):
+        return create_collect_action(bas)
+
+
+    if (point.Y != house['Y'] - 7):
+        ret = create_move_action(bas)
+    if (point.X != house['X'] + 3):
+        ret = create_move_action(gauche)
+
+    return ret
 
 @app.route("/", methods=["POST"])
 def reponse():
