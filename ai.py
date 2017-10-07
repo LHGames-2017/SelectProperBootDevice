@@ -88,12 +88,10 @@ def bot():
 
         otherPlayers.append(player_info)
     # return decision
-    print(point)
     print(player.Position)
     incrementX = Point(1, 0)
     destination = point.__add__(incrementX)
-    ret = create_move_action(destination)
-    return ret
+    return create_move_action(destination)
 
 @app.route("/", methods=["POST"])
 def reponse():
