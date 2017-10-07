@@ -21,14 +21,5 @@ class Cases():
     def __init__(self, x, y, content, casesAccessibles):
         self.x_ = x
         self.y_ = y
-        self.etat_ = etat
+        self.content = content
         self.casesAccessibles_ = casesAccessibles
-
-
-    def afficher():
-        print("salut")
-
-
-
-
-

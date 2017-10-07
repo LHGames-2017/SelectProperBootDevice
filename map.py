@@ -21,22 +21,19 @@ class Map():
             for j in range(point.Y - 10,point.Y + 10):
                 content = self.trouverContent(i, j, mapparam)
                 casesAccessibles = self.trouverCasesAccessibles(i, j, mapparam)
-                self.cases_.append(Cases(cases[i], cases[j], content, casesAccessibles))
+                self.cases_.append(Cases(i, j, content, casesAccessibles))
 
 
 
     def trouverContent(self, x, y, map):
-        for k in range (0, map.length):
-            if map[k]['X'] == x and map[k]['Y'] == y:
-                return map[k]['Content']
+        carte = map.replace('{', '[')
+        carte = carte.replace('}', ']')
+        carte = eval(carte)
 
-    def trouverCasesAccessibles(self, x, y, map):
-        cases = []
-        for n in range(0, map.length):
-            if (map[k]['X'] == x + 1 and map[k]['Y'] == y) or (map[k]['X'] == x and map[k]['Y'] == y - 1) or (map[k]['X'] == x - 1 and map[k]['Y'] == y) or (map[k]['X'] == x and map[k]['Y'] == y + 1) :
-                cases.append(map[k])
+        x_origine = carte[0][0][1]
+        y_origine = carte[0][0][2]
 
-        return cases
+        i = abs(x_origine - x)
+        j = abs(y_origine - y)
 
-
-
+        return carte[i][j][0]

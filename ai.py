@@ -77,7 +77,7 @@ def bot():
 
     serialized_map = map_json["CustomSerializedMap"]
 
-    # map = Map(point, serialized_map)
+    map = Map(point, serialized_map)
 
     deserialized_map = deserialize_map(serialized_map)
 
