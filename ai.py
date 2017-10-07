@@ -1,9 +1,9 @@
 from flask import Flask, request
 from structs import *
 import json
-import numpy
-import map
-import cases
+from numpy import *
+from map import *
+from cases import *
 
 app = Flask(__name__)
 
@@ -77,7 +77,7 @@ def bot():
 
     serialized_map = map_json["CustomSerializedMap"]
 
-    map = Map(point, serialized_map)
+    # map = Map(point, serialized_map)
 
     deserialized_map = deserialize_map(serialized_map)
 
@@ -92,7 +92,7 @@ def bot():
                                      Point(p_pos["X"], p_pos["Y"]))
 
         otherPlayers.append(player_info)
-    #print(player.Position)
+    print(player.Position)
     # return decision
     incrementX = Point(1, 0)
     destination = player.Position.__add__(incrementX)

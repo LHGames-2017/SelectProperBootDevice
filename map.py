@@ -8,7 +8,7 @@
 # Copyright:   (c) Valentin 2017
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
-import Cases
+from cases import *
 from enum import Enum
 
 
