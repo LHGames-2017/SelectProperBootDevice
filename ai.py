@@ -97,7 +97,6 @@ def bot():
     if (point.X == house['X'] + 3 and point.Y == house['Y'] - 7):
         return create_collect_action(bas)
 
-
     if (point.Y != house['Y'] - 7):
         ret = create_move_action(bas)
     if (point.X != house['X'] + 3):
