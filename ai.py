@@ -89,21 +89,31 @@ def bot():
         otherPlayers.append(player_info)
     # return decision
 
-    monpointb = Point(1, 0)
-    gauche = point.__sub__(monpointb)
-    monpointa = Point(0, 1)
-    haut = point.__add__(monpointa)
+    ETAT = 'NONDEFINI'
 
+    # Etat initial : maison
     if (point.X == house['X'] and point.Y == house['Y']):
-        dest = Point(house['X'], house['Y'])
-        return create_move_action(dest)
+        chemin.append(house['X'], house['Y'])
+        ETAT = 'INITIAL'
 
-    if (point.X != house['X']):
-        ret = create_move_action(gauche)
-    if (point.Y != house['Y']):
-        ret = create_move_action(haut)
+    if (ETAT == 'INITAL'):
+        ETAT = 'RECHERCHE'
 
-    return ret
+    if (ETAT == 'RECHERCHE'):
+        for i in range(0, 50):
+            for j in range(0, 50):
+                if (Map.trouverContent(house['X'] + i, house['Y'] + j, serialized_map) == 4):  # Ressource
+                    ETAT = 'DEPLACEMENT'
+                    ressourceCoord.__add__(house['X'], house['Y'])
+
+    if (ETAT == 'DEPLACEMENT'):
+        if (point.X != ressourceCoord.X):
+            chemin.append(Point(point.X, point.Y))
+            return create_move_action(Point(0, 1).__add__(point))
+        if (point.Y != ressourceCoord.Y):
+            return create_move_action((Point(0, 1)).__add__(point))
+
+    return
 
 @app.route("/", methods=["POST"])
 def reponse():
